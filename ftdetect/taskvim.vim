@@ -9,5 +9,8 @@
 " Last Change: 10/02/2012
  
 augroup taskvim
+     au! BufRead,BufNewFile *.tasks set filetype=taskvim
+     au! BufRead,BufNewFile *.taskpaper set filetype=taskvim
+     au! BufRead,BufNewFile *.todo set filetype=taskvim
      au! BufRead,BufNewFile *.taskvim.txt set filetype=taskvim
 augroup END

@@ -19,6 +19,7 @@ function! s:TaskDone()
     let line = getline(".")
     if (line =~ '—\{1}\s')
        let line2 = substitute(line, "—", "+", "")
+       let line2 .= " @done" . " #" . strftime("%FT%T%z")
        call setline(".", line2)
        echo "task done"
     elseif (line =~ '+\{1}\s')
@@ -27,6 +28,7 @@ function! s:TaskDone()
         echo "task undone"
     elseif (line =~ '>\{1}\s')
         let line2 = substitute(line, ">", "+", "")
+	let line2 .= " @done" . " #" . strftime("%FT%T%z")
         call setline(".", line2)
         echo "important task done"
     else    
